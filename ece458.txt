@@ -203,7 +203,7 @@ A PRNG G is predictable if there is an efficient algorithm A such that if
 A is given i < n bits from G, it can guess the next bit output of G with
 non-negligibly higher than 50% chance.
 
-Pr[A(G(k))|1..i = G(k)|i+1] = 1/2 + e
+Pr[A(G(k)|1..i) = G(k)|i+1] = 1/2 + e
 
 where e is non-negligible.
 
@@ -216,7 +216,7 @@ many x.
 
 An attacker guesses 1 if it thinks that the bits passed in are not random.
 
-The advantage, with respect to an attacker A and PRNG G, the probability that
+The advantage, with respect to an attacker A and PRNG G, is the difference between the probability that
 A guesses that G(k) is not random, versus the probability that A guesses that
 a random input is not random.
 
@@ -384,7 +384,8 @@ choose a random permutation to use, or the PRP.
 
 * Is a secure PRP always a secure PRF?
 
-No, since the domain of Funs is bigger than Perms[X, X].
+No, since the domain of Funs[X, X] is bigger than Perms[X].
+However, for very large |X|, a secure PRPs are secure PRFs.
 
 * What is the PRF switching lemma?
 
